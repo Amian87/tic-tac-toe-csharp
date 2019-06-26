@@ -13,10 +13,9 @@ namespace TicTacToe
             return Marks;
         }
 
-        public void Move(int position)
+        public void Move(int position, string symbol)
         {
-            Marks.Add(Tuple.Create(2, "X"));
-
+            Marks.Add(Tuple.Create(position, symbol));
         }
 
     }

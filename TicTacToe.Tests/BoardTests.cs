@@ -15,13 +15,22 @@ namespace TicTacToe.Tests
         }
 
         [Test]
-        public void MakeMove()
+        public void MakeOneMove()
         {
             Board board = new Board();
-            board.Move(2);
+            board.Move(2, "X");
             Tuple<int, string>[] expectedBoard = { Tuple.Create(2, "X") };
             Assert.AreEqual(board.CurrentMarks(), expectedBoard);
+        }
 
+        [Test]
+        public void MakeTwoMoves()
+        {
+            Board board = new Board();
+            board.Move(3, "P");
+            board.Move(7, "W");
+            Tuple<int, string>[] expectedBoard = { Tuple.Create(3, "P"), Tuple.Create(7, "W") };
+            Assert.AreEqual(board.CurrentMarks(), expectedBoard);
         }
     }
 }
