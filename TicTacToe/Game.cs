@@ -18,12 +18,21 @@ namespace TicTacToe
         public List<Tuple<int, string>> CurrentMarks()
         {
             return board.CurrentMarks();
+            
         }
 
         private void GoToNextTurn()
         {
             CurrentSymbol = (CurrentSymbol == "X" ? "O" : "X");
         }
+
+        public bool InProgress()
+        {
+            return board.CurrentMarks().Count < 9;
+
+        }
+
+        
 
     }
 }

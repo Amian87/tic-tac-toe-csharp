@@ -36,5 +36,38 @@ namespace TicTacToe.Tests
             Assert.AreEqual(game.CurrentMarks(), currentMarks);
         }
 
+        [Test]
+        public void TheGameIsInProgress()
+        {
+            Game game = new Game();
+            for(int i = 1; i < 4; i++)
+            {
+                game.Move(i);
+            }
+            Assert.True(game.InProgress());
+        }
+
+        [Test]
+        public void YouCanMakeNineMovesBeforeTheGameIsOver()
+        {
+            Game game = new Game();
+            for (int i = 1; i < 10; i++)
+            {
+                game.Move(i);
+            }
+            Assert.False(game.InProgress());
+        }
+
+        [Test]
+        public void TheGameIsOverAfterGreaterThanNineMoves()
+        {
+            Game game = new Game();
+            for (int i = 1; i < 100; i++)
+            {
+                game.Move(i);
+            }
+            Assert.False(game.InProgress());
+        }
+
     }
 }
