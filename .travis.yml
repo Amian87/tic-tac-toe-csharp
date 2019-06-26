@@ -1,8 +1,7 @@
 language: csharp
 solution: TicTacToe.sln
-install:
-  - nuget restore TicTacToe.sln
-  - nuget install NUnit.Console -Version 3.10.0 -OutputDirectory testrunner
+mono: none
+dotnet: 2.1.502
 script:
-  - msbuild /p:Configuration=Release TicTacToe.sln
-  - mono ./testrunner/NUnit.ConsoleRunner.3.10.0/tools/nunit3-console.exe ./TicTacToe.Tests/bin/Release/TicTacToe.Tests.dll
+  - dotnet restore
+  - dotnet test
