@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace TicTacToe
+{
+    public class Board
+    {
+        private List<Tuple<int, string>> Marks = new List<Tuple<int, string>> ();
+
+        public List<Tuple<int, string>> CurrentMarks()
+        {
+            return Marks;
+        }
+
+        public void Move(int position)
+        {
+            Marks.Add(Tuple.Create(2, "X"));
+
+        }
+
+    }
+}
