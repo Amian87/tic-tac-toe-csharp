@@ -15,23 +15,25 @@ namespace TicTacToe
 
         public bool InProgress()
         {
-            return !(threeInARow(1,2,3,"X") || threeInARow(4,5,6,"O") || threeInARow(1,2,3,"O" ));
+            
+            return !(threeInARow(new int[]{1,2,3},"X") || threeInARow(new int[] { 4, 5, 6 },"X") 
+                || threeInARow(new int[] { 4, 5, 6 },"O") || threeInARow(new int[] { 1, 2, 3 },"O" ));
         }
 
-        private bool threeInARow(int pos1, int pos2, int pos3, string symbol)
+        private bool threeInARow(int[] positions, string symbol)
         {
             int numberInARow = 0;
             foreach (Tuple<int, string> mark in board.CurrentMarks())
             {
-                if (mark.Item1 == pos1 && mark.Item2 == symbol)
+                if (mark.Item1 == positions[0] && mark.Item2 == symbol)
                 {
                     numberInARow += 1;
                 }
-                else if (mark.Item1 == pos2 && mark.Item2 == symbol)
+                else if (mark.Item1 == positions[1] && mark.Item2 == symbol)
                 {
                     numberInARow += 1;
                 }
-                else if (mark.Item1 == pos3 && mark.Item2 == symbol)
+                else if (mark.Item1 == positions[2] && mark.Item2 == symbol)
                 {
                     numberInARow += 1;
                 }
