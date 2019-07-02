@@ -15,9 +15,28 @@ namespace TicTacToe
 
         public bool InProgress()
         {
-            
-            return !(threeInARow(new int[]{1,2,3},"X") || threeInARow(new int[] { 4, 5, 6 },"X") 
-                || threeInARow(new int[] { 4, 5, 6 },"O") || threeInARow(new int[] { 1, 2, 3 },"O" ));
+            bool inProgress = true;
+            foreach (string symbol in Symbols())
+                foreach (int[] row in RowsToCheck())
+                {
+                    {
+                        if (threeInARow(row, symbol))
+                        {
+                            inProgress = false;
+                        }
+                    }
+                }
+            return inProgress;
+        }
+
+        private string[] Symbols()
+        {
+            return new string[]{ "X", "O"};
+        }
+
+        private int[][] RowsToCheck()
+        {
+            return new int[][] { new int[] { 1, 2, 3 }, new int[] { 4, 5, 6 }, new int[] { 7, 8, 9 } };
         }
 
         private bool threeInARow(int[] positions, string symbol)

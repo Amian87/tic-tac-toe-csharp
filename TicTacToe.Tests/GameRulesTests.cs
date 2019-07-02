@@ -89,5 +89,14 @@ namespace TicTacToe.Tests
             Assert.IsFalse(rules.InProgress());
         }
 
+        [Test]
+        public void checkIfThereAreThreeDifferentSymbolsInTheBottomHorizontolSpace()
+        {
+            board.Move(7, "X");
+            board.Move(8, "X");
+            board.Move(9, "X");
+            Assert.IsFalse(rules.InProgress());
+        }
+
     }
 }
