@@ -32,7 +32,20 @@ namespace TicTacToe
 
         }
 
-        
+        public void play()
+        {
+            // This is not tested
+            // This CAN be tested, but we will return to it later after
+            // some more experience with TDD
+            Console.WriteLine("Let's play Tic Tac Toe!");
+            while (InProgress())
+            {
+                Console.WriteLine("Enter a number between 1 and 9");
+                int playerMove = Int32.Parse(Console.ReadLine());
+                Move(playerMove);
+                CurrentMarks().ForEach(Console.WriteLine);
+            }
+        }
 
     }
 }
