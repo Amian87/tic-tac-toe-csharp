@@ -48,17 +48,24 @@ namespace TicTacToe
                 {
                     numberInARow += 1;
                 }
-                else if (mark.Item1 == positions[1] && mark.Item2 == symbol)
+                if (mark.Item1 == positions[1] && mark.Item2 == symbol)
                 {
                     numberInARow += 1;
                 }
-                else if (mark.Item1 == positions[2] && mark.Item2 == symbol)
-                {
-                    numberInARow += 1;
-                }
+                numberInARow = NewMethod(positions, symbol, numberInARow, mark);
 
             }
             return numberInARow == 3;
+        }
+
+        private static int NewMethod(int[] positions, string symbol, int numberInARow, Tuple<int, string> mark)
+        {
+            if (mark.Item1 == positions[2] && mark.Item2 == symbol)
+            {
+                numberInARow += 1;
+            }
+
+            return numberInARow;
         }
     }
 }
