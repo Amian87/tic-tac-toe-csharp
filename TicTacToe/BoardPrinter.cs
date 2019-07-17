@@ -15,37 +15,19 @@ namespace TicTacToe
 
         public string display()
         {
-            if(board.CurrentMarks().Contains(Tuple.Create(2, "X")))
-            {
-                return
-$@"      |  X   |      
- _ _ _+ _ _ _+ _ _ _
-      |      |      
- _ _ _+ _ _ _+ _ _ _
-      |      |      ";
-            }
-            else if(board.CurrentMarks().Contains(Tuple.Create(3, "X")))
-            {
-                return
-$@"      |      |  X   
- _ _ _+ _ _ _+ _ _ _
-      |      |      
- _ _ _+ _ _ _+ _ _ _
-      |      |      ";
-
-            }
-            else
-            {
-
-            
             return
-$@"      |      |      
- _ _ _+ _ _ _+ _ _ _
+$@"      |  {board.GetMark(2)}   |  {board.GetMark(3)}   
+ {horizontalRule()}
       |      |      
- _ _ _+ _ _ _+ _ _ _
+ {horizontalRule()}
       |      |      ";
 
-            }
+
+        }
+
+        private string horizontalRule()
+        {
+            return "_ _ _+ _ _ _+ _ _ _";
         }
        
 

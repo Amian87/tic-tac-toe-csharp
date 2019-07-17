@@ -55,7 +55,26 @@ namespace TicTacToe.Tests
             Board board = new Board();
             board.Move(1, "O");
             board.Move(3, "X");
-            Assert.AreEqual("", board.GetMark(4));
+            Assert.AreEqual(" ", board.GetMark(4));
+        }
+
+        [Test]
+        public void ReturnMarkForPosition4()
+        {
+            Board board = new Board();
+            board.Move(4, "X");
+            Assert.AreEqual("X", board.GetMark(4));
+                
+        }
+
+
+        [Test]
+        public void ReturnMarkForPosition5()
+        {
+            Board board = new Board();
+            board.Move(5, "X");
+            Assert.AreEqual("X", board.GetMark(5));
+
         }
 
 

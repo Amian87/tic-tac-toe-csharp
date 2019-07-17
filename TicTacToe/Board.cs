@@ -26,7 +26,7 @@ namespace TicTacToe
                     return Mark.Item2;
                 }
             }
-            return "";
+            return " ";
         }
 
     }
