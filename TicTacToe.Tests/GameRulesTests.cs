@@ -113,5 +113,50 @@ namespace TicTacToe.Tests
             Assert.IsFalse(rules.InProgress());
         }
 
+        [Test]
+        public void CheckIfThereAreThreeSymbolsInTheLeftToRightDiagnolSpace()
+        {
+            board.Move(1, "X");
+            board.Move(5, "X");
+            board.Move(9, "X");
+            Assert.IsFalse(rules.InProgress());
+        }
+
+        [Test]
+        public void CheckIfThereAreThreeSymbolsInTheRightToLeftDiagnolSpace()
+        {
+            board.Move(3, "X");
+            board.Move(5, "X");
+            board.Move(7, "X");
+            Assert.IsFalse(rules.InProgress());
+        }
+
+        [Test]
+        public void CheckIfThereAreThreeSymbolsInTheLeftVerticalSpace()
+        {
+            board.Move(1, "X");
+            board.Move(4, "X");
+            board.Move(7, "X");
+            Assert.IsFalse(rules.InProgress());
+        }
+
+        [Test]
+        public void CheckIfThereAreThreeSymbolsInTheMiddleVerticalSpace()
+        {
+            board.Move(2, "X");
+            board.Move(5, "X");
+            board.Move(8, "X");
+            Assert.IsFalse(rules.InProgress());
+        }
+
+        [Test]
+        public void CheckIfThereAreThreeSymbolsInTheRightVerticalSpace()
+        {
+            board.Move(3, "X");
+            board.Move(6, "X");
+            board.Move(9, "X");
+            Assert.IsFalse(rules.InProgress());
+        }
+
     }
 }
