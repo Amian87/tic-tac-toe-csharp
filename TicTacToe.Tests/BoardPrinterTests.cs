@@ -41,5 +41,22 @@ $@"      |  X   |
 
         }
 
+        [Test]
+        public void DisplayABoardWithASingleMarkInADifferentLocation()
+        {
+            Board board = new Board();
+            board.Move(3, "X");
+
+            BoardPrinter boardPrinter = new BoardPrinter(board);
+
+            Assert.AreEqual(
+$@"      |      |  X   
+ _ _ _+ _ _ _+ _ _ _
+      |      |      
+ _ _ _+ _ _ _+ _ _ _
+      |      |      ", boardPrinter.display());
+
+        }
+
     }
 }

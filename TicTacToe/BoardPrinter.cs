@@ -24,6 +24,16 @@ $@"      |  X   |
  _ _ _+ _ _ _+ _ _ _
       |      |      ";
             }
+            else if(board.CurrentMarks().Contains(Tuple.Create(3, "X")))
+            {
+                return
+$@"      |      |  X   
+ _ _ _+ _ _ _+ _ _ _
+      |      |      
+ _ _ _+ _ _ _+ _ _ _
+      |      |      ";
+
+            }
             else
             {
 
