@@ -15,8 +15,30 @@ namespace TicTacToe.Tests
            
             BoardPrinter boardPrinter = new BoardPrinter(board);
 
-            Assert.AreEqual("   |   |   \n", boardPrinter.display());
+            Assert.AreEqual(
+$@"      |      |      
+ _ _ _+ _ _ _+ _ _ _
+      |      |      
+ _ _ _+ _ _ _+ _ _ _
+      |      |      ", boardPrinter.display());
             
+        }
+
+        [Test]
+        public void DisplayABoardWithASingleMark()
+        {
+            Board board = new Board();
+            board.Move(2, "X");
+
+            BoardPrinter boardPrinter = new BoardPrinter(board);
+
+            Assert.AreEqual(
+$@"      |  X   |      
+ _ _ _+ _ _ _+ _ _ _
+      |      |      
+ _ _ _+ _ _ _+ _ _ _
+      |      |      ", boardPrinter.display());
+
         }
 
     }

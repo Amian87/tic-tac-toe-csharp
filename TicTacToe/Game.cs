@@ -9,9 +9,12 @@ namespace TicTacToe
         private string CurrentSymbol = "X";
         private Board board = new Board();
         private GameRules rules;
+        private BoardPrinter boardPrinter;
+
 
         public Game()
         {
+            boardPrinter = new BoardPrinter(board);
             rules = new GameRules(board);
         }
 
@@ -42,6 +45,7 @@ namespace TicTacToe
             while (rules.InProgress())
             {
                 Console.WriteLine("Enter a number between 1 and 9");
+                Console.WriteLine(boardPrinter.display());
                 int playerMove = Int32.Parse(Console.ReadLine());
                 Move(playerMove);
                 CurrentMarks().ForEach(Console.WriteLine);
