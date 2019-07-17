@@ -24,11 +24,7 @@ namespace TicTacToe
             GoToNextTurn();
         }
 
-        public List<Tuple<int, string>> CurrentMarks()
-        {
-            return board.CurrentMarks();
-            
-        }
+ 
 
         private void GoToNextTurn()
         {
@@ -48,7 +44,6 @@ namespace TicTacToe
                 Console.WriteLine(boardPrinter.display());
                 int playerMove = Int32.Parse(Console.ReadLine());
                 Move(playerMove);
-                CurrentMarks().ForEach(Console.WriteLine);
             }
         }
 

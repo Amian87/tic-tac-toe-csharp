@@ -15,19 +15,12 @@ namespace TicTacToe
 
         public string display()
         {
-            return
-$@"{RowOfSymbols(1,2,3)}
- {horizontalRule()}
-{RowOfSymbols(4, 5, 6)}
- {horizontalRule()}
-{RowOfSymbols(7, 8, 9)}";
-
-
+            return  $"{RowOfSymbols(1, 2, 3)}{horizontalRule()}{RowOfSymbols(4, 5, 6)}{horizontalRule()}{RowOfSymbols(7, 8, 9)}";
         }
 
         private string horizontalRule()
         {
-            return "_ _ _+ _ _ _+ _ _ _";
+            return "\r\n _ _ _+ _ _ _+ _ _ _\r\n";
         }
 
         private string VerticalRule()
@@ -41,12 +34,8 @@ $@"{RowOfSymbols(1,2,3)}
         }
 
         private string RowOfSymbols(int position1, int position2, int position3)
-        {
-           
+        {   
             return $"{MarkWithPadding(position1)}{VerticalRule()}{MarkWithPadding(position2)}{VerticalRule()}{MarkWithPadding(position3)}";
         }
-       
-
-
     }
 }
