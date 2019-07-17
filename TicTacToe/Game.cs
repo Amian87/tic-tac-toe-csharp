@@ -8,6 +8,12 @@ namespace TicTacToe
     {
         private string CurrentSymbol = "X";
         private Board board = new Board();
+        private GameRules rules;
+
+        public Game()
+        {
+            rules = new GameRules(board);
+        }
 
         public void Move(int position)
         {
@@ -26,11 +32,6 @@ namespace TicTacToe
             CurrentSymbol = (CurrentSymbol == "X" ? "O" : "X");
         }
 
-        public bool InProgress()
-        {
-            return board.CurrentMarks().Count < 9;
-
-        }
 
         public void play()
         {
@@ -38,7 +39,7 @@ namespace TicTacToe
             // This CAN be tested, but we will return to it later after
             // some more experience with TDD
             Console.WriteLine("Let's play Tic Tac Toe!");
-            while (InProgress())
+            while (rules.InProgress())
             {
                 Console.WriteLine("Enter a number between 1 and 9");
                 int playerMove = Int32.Parse(Console.ReadLine());

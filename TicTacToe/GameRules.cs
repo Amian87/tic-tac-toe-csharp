@@ -24,8 +24,14 @@ namespace TicTacToe
                         {
                             inProgress = false;
                         }
+                        
                     }
                 }
+            if (board.CurrentMarks().Count == 9)
+            {
+                inProgress = false;
+            }
+
             return inProgress;
         }
 
@@ -38,6 +44,9 @@ namespace TicTacToe
         {
             return new int[][] { new int[] { 1, 2, 3 }, new int[] { 4, 5, 6 }, new int[] { 7, 8, 9 } };
         }
+
+        
+
 
         private bool threeInARow(int[] positions, string symbol)
         {

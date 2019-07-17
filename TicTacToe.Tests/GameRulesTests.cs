@@ -98,5 +98,20 @@ namespace TicTacToe.Tests
             Assert.IsFalse(rules.InProgress());
         }
 
+        [Test]
+        public void checkIfTheGameIsTied()
+        {
+            board.Move(1, "X");
+            board.Move(2, "O");
+            board.Move(3, "X");
+            board.Move(4, "O");
+            board.Move(5, "O");
+            board.Move(6, "X");
+            board.Move(7, "X");
+            board.Move(8, "X");
+            board.Move(9, "O");
+            Assert.IsFalse(rules.InProgress());
+        }
+
     }
 }
