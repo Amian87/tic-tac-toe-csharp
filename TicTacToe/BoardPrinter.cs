@@ -16,11 +16,11 @@ namespace TicTacToe
         public string display()
         {
             return
-$@"      |  {board.GetMark(2)}   |  {board.GetMark(3)}   
+$@"{RowOfSymbols(1,2,3)}
  {horizontalRule()}
-      |      |      
+{RowOfSymbols(4, 5, 6)}
  {horizontalRule()}
-      |      |      ";
+{RowOfSymbols(7, 8, 9)}";
 
 
         }
@@ -28,6 +28,22 @@ $@"      |  {board.GetMark(2)}   |  {board.GetMark(3)}
         private string horizontalRule()
         {
             return "_ _ _+ _ _ _+ _ _ _";
+        }
+
+        private string VerticalRule()
+        {
+            return "|";
+        }
+
+        private string MarkWithPadding(int position)
+        {
+            return $"  {board.GetMark(position)}   ";
+        }
+
+        private string RowOfSymbols(int position1, int position2, int position3)
+        {
+           
+            return $"{MarkWithPadding(position1)}{VerticalRule()}{MarkWithPadding(position2)}{VerticalRule()}{MarkWithPadding(position3)}";
         }
        
 
