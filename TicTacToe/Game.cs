@@ -10,28 +10,29 @@ namespace TicTacToe
         private Board board = new Board();
         private GameRules rules;
         private BoardPrinter boardPrinter;
+        private IPlayer PlayerOne;
+        private IPlayer PlayerTwo;
 
 
         public Game()
         {
             boardPrinter = new BoardPrinter(board);
+            PlayerOne = new HumanPlayer(boardPrinter);
+            PlayerTwo = new HumanPlayer(boardPrinter);
             rules = new GameRules(board);
         }
 
-        public void Move(int position)
+        private void Move(int position)
         {
             board.Move(position, CurrentSymbol);
             GoToNextTurn();
         }
 
- 
-
         private void GoToNextTurn()
         {
             CurrentSymbol = (CurrentSymbol == "X" ? "O" : "X");
         }
-
-
+        
         public void play()
         {
             // This is not tested
@@ -40,10 +41,8 @@ namespace TicTacToe
             Console.WriteLine("Let's play Tic Tac Toe!");
             while (rules.InProgress())
             {
-                Console.WriteLine("Enter a number between 1 and 9");
-                Console.WriteLine(boardPrinter.display());
-                int playerMove = Int32.Parse(Console.ReadLine());
-                Move(playerMove);
+                Move(PlayerOne.Move());
+                Move(PlayerTwo.Move());
             }
         }
 
